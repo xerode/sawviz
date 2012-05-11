@@ -2,13 +2,13 @@
 
 ## People
 
-* **id**
-* name
+* **id (PK)**
+* name UNIQUE
 * _role (FK role id)_
 	
 ## People-People Relationships
 
-* **id**
+* **id (PK)**
 * _person_a_id (FK people id)_
 * _person_b_id (FK people id)_
 * _film_id (FK film id)_
@@ -19,36 +19,36 @@
 ## People Statuses 
 e.g. Jigsaw victim/Jigsaw recruit/game participant/killed/police rank
 
-* **id**
+* **id (PK)**
 * name
 	
 ## People-Status Relationships
 
-* **id**
+* **id (PK)**
 * _person_id (FK people id)_
 * _film_id (FK film id)_
 
 ## Roles
-e.g. police/hospital/civilian/law
+e.g. police/hospital/civilian/law/health insurance
 
-* **id**
-* name
+* **id (PK)**
+* name  UNIQUE
 
 ## People-Roles Relationships
 
-* **id**
+* **id (PK)**
 * _people (FK people id)_
 * _role (FK film id)_
 
 
 ## Films
 
-* **id**
-* name
+* **id (PK)**
+* name UNIQUE
 	
 ## People-Films Relationships
 
-* **id**
+* **id (PK)**
 * _people (FK people id)_
 * _film (FK film id)_
 * flashback_only Boolean
