@@ -8,13 +8,14 @@
         paths: {
             jQuery: 'libs/jquery/jquery',
             Class: 'libs/class/jrc-wrapper',
-            Events: 'events/events'
+            Events: 'events/events',
+            d3: 'libs/d3js/d3'
         },
 
         modules: [
             {
                 name: "main",
-                exclude: [ "jQuery", "Class" ]
+                exclude: [ "jQuery", "Class", "d3" ]
             }
         ]
     }
