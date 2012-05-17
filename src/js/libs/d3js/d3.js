@@ -4,6 +4,6 @@ define(
     ],
     function() {
         // Tell Require.js that this module returns a reference to D3.js
-        return d3.noConflict();
+        return d3;
     } 
 );

@@ -3,19 +3,19 @@
         appDir: "../",
         baseUrl: "js",
         dir: "../../bin",
-        // optimize: "none",
+        optimize: "none",
 
         paths: {
             jQuery: 'libs/jquery/jquery',
             Class: 'libs/class/jrc-wrapper',
-            Events: 'events/events',
-            d3: 'libs/d3js/d3'
+            d3: 'libs/d3js/d3',
+            Events: 'events/events'
         },
 
         modules: [
             {
                 name: "main",
-                exclude: [ "jQuery", "Class", "d3" ]
+                exclude: [ "jQuery", "d3", "Class" ]
             }
         ]
     }
