@@ -124,9 +124,14 @@ while( $results = mysql_fetch_array( $query ) ) {
 
 					</select>
 					<label for"flashback">Flashback</label>
-					<input id="flashback" name="flashback" <?php if( isset( $_POST[ 'flashback' ] ) && $_POST[ 'flashback' ] ) { echo ' checked="checked"'; } ?>" type="checkbox">
+					<input id="flashback" name="flashback" <?php if( isset( $_POST[ 'flashback' ] ) && $_POST[ 'flashback' ] ) { echo ' checked="checked"'; } ?> type="checkbox" />
+					<label for"weight">Weight</label>
+					<input name="weight" value="<?php if( isset( $_POST[ 'weight' ] ) && $_POST[ 'weight' ] ) { echo $_POST[ 'weight' ]; } else { echo 1; }  ?>" type="text" />
+					<label for"comment">Comment</label>
+					<textarea id="comment" name="comment"><?php if( isset( $_POST[ 'comment' ] ) && $_POST[ 'comment' ] ) { echo $_POST[ 'comment' ]; } ?></textarea>
 					<input name="action" value="add" type="hidden" />
 					<button type="submit">Submit</button>
+					<button type="reset">Reset</button>
 				</fieldset>
 			</form>
 		</div>
