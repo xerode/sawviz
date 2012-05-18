@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Vizsaw</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-</head>
-	<body>
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script data-main="js/main" src="js/libs/requirejs/require.js"></script>
-	</body>
+  <head>
+      <title>Visualising relationships between characters in the Saw horror film/movie franchise</title>
+      <style type="text/css">
+      .link { stroke: #ccc; }
+      .nodetext { pointer-events: none; font: 10px sans-serif; }
+      </style>
+    </head>
+    <body>
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script data-main="js/main" src="js/libs/requirejs/require.js"></script>
+  </body>
 </html>

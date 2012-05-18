@@ -1,12 +1,13 @@
 <?php
 
 include_once '../mysql.php';
-/*
+
 if( isset( $_POST[ 'action' ] ) && $_POST[ 'action' ] == 'add' ) {
 
-	if( $_POST[ 'selectPersonA' ] != $_POST[ 'selectPersonB' ] ) {
+	if( $_POST[ 'selectPersonA' ] != $_POST[ 'selectPersonB' ] && $_POST[ 'selectPersonA' ] != "-" && $_POST[ 'selectPersonB' ] != "-" && $_POST[ 'film' ] != "-"  ) {
 
-		$query = mysql_query( "SELECT * FROM relationships WHERE ( person_a_id = ".$_POST[ 'selectPersonA' ]." AND person_b_id = ".$_POST[ 'selectPersonB' ]." ) OR ( person_a_id = ".$_POST[ 'selectPersonB' ]." AND person_b_id = ".$_POST[ 'selectPersonA' ]." )", $mysql );
+		/*
+		$query = mysql_query( "SELECT * FROM rels_people_people WHERE ( person_a_id = ".$_POST[ 'selectPersonA' ]." AND person_b_id = ".$_POST[ 'selectPersonB' ]." ) OR ( person_a_id = ".$_POST[ 'selectPersonB' ]." AND person_b_id = ".$_POST[ 'selectPersonA' ]." )", $mysql );
 
 		if( mysql_num_rows( $query ) > 0 ) {
 			$msg = "Already added to database";
@@ -19,11 +20,27 @@ if( isset( $_POST[ 'action' ] ) && $_POST[ 'action' ] == 'add' ) {
 			$msg = "Adding relationship to database: ".$_POST[ 'selectPersonA' ]." + ".$_POST[ 'selectPersonB' ];
 
 		}
+		*/
+
+		$person_a_id = $_POST[ 'selectPersonA' ];
+		$person_b_id = $_POST[ 'selectPersonB' ];
+		$film = $_POST[ 'film' ];
+		$weight = $_POST[ 'weight' ];
+		if( isset( $_POST[ 'flashback' ] ) && $_POST[ 'flashback' ] == 'on' ) {
+			$flashback = 1;
+		} else {
+			$flashback = 0;
+		}
+		$comment = addslashes( $_POST[ 'comment' ] );
+
+		// $msg = "INSERT INTO rels_people_people ( person_a_id, person_b_id, film_id, weight, flashback, comment ) VALUES( $person_a_id, $person_b_id, $film, $weight, $flashback, '$comment' )";
+
+		$query = mysql_query( "INSERT INTO rels_people_people ( person_a_id, person_b_id, film_id, weight, flashback, comment ) VALUES( $person_a_id, $person_b_id, $film, $weight, $flashback, '$comment' )", $mysql );
 
 	}
 
 }
-*/
+
 $query = mysql_query( "SELECT * FROM people ORDER BY name ASC", $mysql );
 
 $people = array();
@@ -68,7 +85,7 @@ while( $results = mysql_fetch_array( $query ) ) {
 				<fieldset>
 					<legend>Add Connection</legend>
 					<label for"selectPersonA">Person A</label>
-					<select id="selectPersonA" name="selectPersonA"> value="<?php if( isset( $_POST[ 'selectPersonA' ] ) ) { echo $_POST[ 'selectPersonA' ]; } else { echo '-'; } ?>">
+					<select id="selectPersonA" name="selectPersonA" value="<?php if( isset( $_POST[ 'selectPersonA' ] ) ) { echo $_POST[ 'selectPersonA' ]; } else { echo '-'; } ?>">
 						<?php
 
 							for( $i = 0; $i < sizeOf( $people ); $i++ ) {

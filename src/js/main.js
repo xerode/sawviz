@@ -59,7 +59,7 @@ require(
 
 		        link.enter().insert("svg:line", "g")
 		        .attr("class", "link")
-		        .style("stroke-width", function(d) { return Math.sqrt( d.value ); });
+		        .style("stroke-width", 1 ); // function(d) { return Math.sqrt( d.value ); }
 
 		 var node = vis.selectAll("g.node")
 		      .data(json.nodes);

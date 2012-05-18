@@ -16,7 +16,7 @@ header('Content-type: application/json');
 
 $people = array();
 
-$query = mysql_query( "SELECT p.id AS pid, p.name AS pname, r.id AS rid FROM people p, rels_people_films r WHERE r.film_id = $film_id AND p.id = r.person_id ORDER BY p.name ASC", $mysql );
+$query = mysql_query( "SELECT p.id AS pid, p.name AS pname, r.id AS rid FROM people p, rels_people_films r WHERE r.film_id = $film_id AND p.id = r.person_id ORDER BY pid ASC", $mysql );
 
 $id = 0;
 $ids = array();
@@ -36,6 +36,20 @@ while( $result = mysql_fetch_array( $query ) ) {
 }
 
 $relationships = array();
+
+$query = mysql_query( "SELECT * FROM rels_people_people WHERE film_id = $film_id ORDER BY person_a_id ASC", $mysql );
+
+$relationships = array();
+
+while( $result = mysql_fetch_array( $query ) ) {
+
+	$relationships[] = array( 
+		"source" => $ids[ $result[ 'person_a_id' ] ],
+		"target" => $ids[ $result[ 'person_b_id' ] ],
+		"value" => $result[ 'weight' ]
+	);
+
+}
 
 $json = array();
 $json[ 'nodes' ] = $people;
