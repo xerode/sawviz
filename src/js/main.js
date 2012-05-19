@@ -47,8 +47,8 @@ require(
 		        .nodes(json.nodes)
 		        .links(json.links)
 		        .gravity(0.2)
-		        .distance(75)
-		        .charge(-750)
+		        .distance(100)
+		        .charge(-1000)
 		        .friction(0.7)
 		        .theta(0.5);
 
@@ -69,7 +69,9 @@ require(
 		      .style("fill", function(d) { return d.color } )
 		      .call(force.drag);
 
-		      gs.append("svg:circle").attr("r", 10).attr("cx", 0).attr("cy", 0);
+		      gs.append("svg:circle").attr("r", function( d ) { return 10 } ).attr("cx", 0).attr("cy", 0);
+
+		      // d.numconnections * 5
 
 		      gs.append( "svg:text" )
 		      .text( function( d ) { return d.name; } )
