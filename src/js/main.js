@@ -24,8 +24,8 @@ require(
 				console.log = function() {};
 		}
 
-		var w = 960,
-		    h = 960;
+		var w = 800,
+		    h = 800;
 
 		var color = d3.scale.category10();
 
@@ -39,18 +39,25 @@ require(
 
 		var vis = d3.select("body").append("svg:svg")
 		    .attr("width", w)
-		    .attr("height", h);
+		    .attr("height", h)
+		    .attr("class", "graph");
 
 		d3.json("data.php?film_id=1", function(json) {
 		    var force = self.force = d3.layout.force()
 		        .size([w, h])
 		        .nodes(json.nodes)
 		        .links(json.links)
-		        .gravity(0.2)
-		        .distance(100)
-		        .charge(-1000)
+		        .gravity(0.25)
+		        .charge(-5000);
+		        // .linkDistance( function( d ) { return d.weight * 40; } )
+
+		        // .distance(200)
+
+		        /*
+		        .gravity(0.25)
 		        .friction(0.7)
 		        .theta(0.5);
+		        */
 
 		        force.start();
 
@@ -59,19 +66,26 @@ require(
 
 		        link.enter().insert("svg:line", "g")
 		        .attr("class", "link")
-		        .style("stroke-width", 1 ); // function(d) { return Math.sqrt( d.value ); }
+		        .style("stroke-width", function( d ) { return d.thickness; } );
 
 		 var node = vis.selectAll("g.node")
 		      .data(json.nodes);
 
 		      var gs = node.enter().append("svg:g")
 		      .attr("class", "" )
-		      .style("fill", function(d) { return d.color } )
 		      .call(force.drag);
 
-		      gs.append("svg:circle").attr("r", function( d ) { return 10 } ).attr("cx", 0).attr("cy", 0);
+		      gs.append( "svg:circle" )
+		      .style("fill", "#ffffff" )
+		      .attr( "r", function( d ) { return d.numconnections * 2 + 10; } )
+		      .attr( "cx", 0 ).attr( "cy", 0 );
 
-		      // d.numconnections * 5
+		      gs.append( "svg:circle" )
+		      .style("fill", function( d ) { return color( d.rid ); } )
+		      .attr( "r", function( d ) { return d.numconnections * 2 + 8; } )
+		      .attr( "cx", 0 ).attr( "cy", 0 );
+
+		      // .style("fill", function( d ) { return d.color } )
 
 		      gs.append( "svg:text" )
 		      .text( function( d ) { return d.name; } )
@@ -85,33 +99,19 @@ require(
 		        return d.name;
 		      });
 
-		/*
-		        node.enter().append("svg:circle")
-		       .attr("class", "node")
-		       .attr("r", 10)
-		       .style("fill", function(d) { return d.color })
-		       .call(force.drag);
-
-		    node.append("svg:circle").attr("r", 10 ).attr("cx", 0).attr("cy", 0);
-		 
-		   node.append("svg:text")
-		        .attr("class", "nodetext")
-		        .attr("dx", 12)
-		        .attr("dy", ".32em")
-		        .text(function(d) { return d.name });
-
-		  node.append("title")
-		       .text(function(d) { return d.name; });
-		       */
-
-		    force.on("tick", function() {
+		     
+		    force.on( "tick", function() {
 		      link.attr("x1", function(d) { return d.source.x; })
 		          .attr("y1", function(d) { return d.source.y; })
 		          .attr("x2", function(d) { return d.target.x; })
 		          .attr("y2", function(d) { return d.target.y; });
 
+		          node.attr("cx", function(d) { return d.x; })
+         .attr("cy", function(d) { return d.y; });
+
 		      node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 		    });
+
 		});
 
 	    // App.initialise();
