@@ -7,14 +7,7 @@ define(
 
 		var initialise = function() {
 
-			console.log( "document ready?" );
-
 			$( document ).ready( function() {
-
-				// Do STUFF
-				console.log( "document ready!" );
-
-				// alert( "what" );
 
 				// Hide person div until necessary
 				// (already hidden by CSS, unhidden on node click)
@@ -37,8 +30,8 @@ define(
 
 				var vis = d3.select( "div#graph" ).append( "svg:svg" )
 				    .attr("width", w)
-				    .attr("height", h)
-				    .attr("class", "graph");
+				    .attr("height", h);
+				    // .attr("class", "graph");
 
 				d3.json("data.php?film_id=1", function(json) {
 
@@ -87,9 +80,13 @@ define(
 						.attr( "cy", 0 )
 						.attr( "did", function( d ) { return d.pid; } )
 						.attr( "class", "personNode" )
-						.on( "click", function() {
-							console.log( "clicky: " + this.did );
+						.on( "click", function( d ) {
+							// console.log( "clicky: " + d );
 							$( "div#person" ).show();
+
+							for( var w in d ) {
+								console.log( "what? " + w + " == " + d[ w ] );
+							}
 						} );
 
 				      // .style("fill", function( d ) { return d.color } )
@@ -123,9 +120,6 @@ define(
 				} );
 
 				// end d3 stuff
-
-
-
 
 			} );
 

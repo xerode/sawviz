@@ -4,13 +4,26 @@
 
 /* Everything else */
 
-body { margin: 20px; }
+body {
+	margin: 20px;
+}
 
-.link { stroke: #808080; }
+div#graph {
+	border: 1px solid black;
+	width: 800px;
+	height: 800px;
+}
 
-.nodetext { pointer-events: none; font: 12px sans-serif; text-align: center; }
+.link {
+	stroke: #808080;
+}
 
-.graph { border: 1px solid black; }
+.nodetext {
+	pointer-events: none;
+	font: 10px sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+}
 
 .personNode { cursor: help; }
 
