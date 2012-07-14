@@ -28,7 +28,7 @@ require(
 
 		var color = d3.scale.category10();
 
-		var vis = d3.select("body").append("svg:svg")
+		var vis = d3.select( "div#graph" ).append( "svg:svg" )
 		    .attr("width", w)
 		    .attr("height", h)
 		    .attr("class", "graph");
@@ -36,11 +36,11 @@ require(
 		d3.json("data.php?film_id=1", function(json) {
 
 		    var force = self.force = d3.layout.force()
-		        .size([w, h])
-		        .nodes(json.nodes)
-		        .links(json.links)
-		        .gravity(0.25)
-		        .charge(-7500);
+		        .size([ w, h ] )
+		        .nodes( json.nodes )
+		        .links( json.links )
+		        .gravity( 0.5 )
+		        .charge( -7500 );
 
 		        // 
 
@@ -70,12 +70,16 @@ require(
 			gs.append( "svg:circle" )
 				.style( "fill", "#ffffff" )
 				.attr( "r", function( d ) { return d.numconnections * 2 + 10; } )
-				.attr( "cx", 0 ).attr( "cy", 0 );
+				.attr( "cx", 0 )
+				.attr( "cy", 0 );
 
 			gs.append( "svg:circle" )
 				.style( "fill", function( d ) { return color( d.rid ); } )
 				.attr( "r", function( d ) { return d.numconnections * 2 + 8; } )
-				.attr( "cx", 0 ).attr( "cy", 0 );
+				.attr( "cx", 0 )
+				.attr( "cy", 0 )
+				.attr( "class", "person" )
+				.on( "click", function() { console.log( "clicky" ); } );
 
 		      // .style("fill", function( d ) { return d.color } )
 

@@ -1,0 +1,15 @@
+/* Imports */
+@import url( "yui_reset_3.4.1.css" );
+@import url( "clearfix.css" );
+
+/* Everything else */
+
+body { margin: 20px; }
+
+.link { stroke: #808080; }
+
+.nodetext { pointer-events: none; font: 12px sans-serif; text-align: center; }
+
+.graph { border: 1px solid black; }
+
+.person { cursor: help; }

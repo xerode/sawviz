@@ -9,7 +9,7 @@ define(
 			// Do STUFF
 			console.log( "Check me" );
 
-			alert( "what" );
+			// alert( "what" );
 
 		}
 

@@ -2,14 +2,22 @@
 <html>
   <head>
       <title>Visualising relationships between characters in the Saw horror film/movie franchise</title>
-      <style type="text/css">
-      .link { stroke: #808080; }
-      .nodetext { pointer-events: none; font: 10px sans-serif; text-align: center; }
-      .graph { border: 1px solid black; }
-      body { margin: 20px; }
-      </style>
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
+      <h1>Vizsaw</h1>
+      <div id="graph"></div>
+      <div id="person">
+        <h2 id="name">Name</h2>
+        <p id="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        <ul id="links">
+          <li>Link #1</li>
+          <li>Link #2</li>
+          <li>Link #3</li>
+          <li>Link #4</li>
+          <li>Link #5</li>
+        </ul>
+      </div>
       <!-- Placed at the end of the document so the pages load faster -->
       <script data-main="js/main" src="js/libs/requirejs/require.js"></script>
   </body>
