@@ -2,14 +2,20 @@ define(
 	[
 		'jQuery'
 	],
-	function() {
+	function( $ ) {
 
 		var initialise = function() {
 
-			// Do STUFF
-			console.log( "Check me" );
+			console.log( "document ready?" );
 
-			// alert( "what" );
+			$( document ).ready( function() {
+
+				// Do STUFF
+				console.log( "document ready!" );
+
+				// alert( "what" );
+
+			} );
 
 		}
 
