@@ -81,12 +81,14 @@ define(
 						.attr( "did", function( d ) { return d.pid; } )
 						.attr( "class", "personNode" )
 						.on( "click", function( d ) {
-							// console.log( "clicky: " + d );
-							$( "div#person" ).show();
 
+							
 							for( var w in d ) {
 								console.log( "what? " + w + " == " + d[ w ] );
 							}
+							
+
+							fetchPersonData( d[ 'pid' ], d[ 'name' ] );
 						} );
 
 				      // .style("fill", function( d ) { return d.color } )
@@ -123,7 +125,17 @@ define(
 
 			} );
 
-		}
+		};
+
+		var fetchPersonData = function( id, name ) {
+
+			console.log( "Fetch person data: " + id );
+
+			$( "div#person" ).show();
+
+			$( "div#person h2#name" ).text( name );
+
+		};
 
 		return {
 			initialise: initialise
