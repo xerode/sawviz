@@ -7,7 +7,7 @@ include_once 'mysql.php';
 if( isset( $_GET[ 'film_id' ] ) ) { // && is_int( $_GET[ 'film_id' ] )
 	$film_id = $_GET[ 'film_id' ];
 } else {
-	$film_id = 1;
+	$film_id = 0;
 }
 
 header('Content-type: application/json');

@@ -6,7 +6,7 @@
       <script>
         var urlParams = <?php echo json_encode($_GET, JSON_HEX_TAG);?>;
 
-        var film_id = 1;
+        var film_id = 0;
 
         if( urlParams.film_id ) {
           film_id = urlParams.film_id;
