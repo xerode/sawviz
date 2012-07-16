@@ -40,7 +40,7 @@ define(
 				        .nodes( json.nodes )
 				        .links( json.links )
 				        .gravity( 0.5 )
-				        .charge( -7500 );
+				        .charge( -5000 );
 
 				        // 
 
@@ -95,10 +95,10 @@ define(
 
 					gs.append( "svg:text" )
 						.text( function( d ) { return d.name; } )
+						.attr("text-anchor", "middle")
 						.attr( "x", -4 )
 						.attr( "y", 2 )
 						.attr( "class", "nodetext" )
-						.attr( "dx", "-50px" )
 						.attr( "dy", ".32em" )
 						.style( "fill", "#000000" );
 
