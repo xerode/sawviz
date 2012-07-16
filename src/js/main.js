@@ -15,7 +15,7 @@ require(
   	],
   	function( $, d3, App ) {
 
-	    App.initialise();
+	    App.initialise( film_id );
 
 	}
 );

@@ -23,9 +23,10 @@ div#graph {
 	font: 10px sans-serif;
 	text-align: center;
 	text-transform: uppercase;
+	font-weight: normal;
 }
 
-.personNode { cursor: help; }
+.personNode { cursor: pointer; }
 
 div#person {
 	display: none;

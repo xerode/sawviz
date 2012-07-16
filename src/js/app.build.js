@@ -3,7 +3,7 @@
         appDir: "../",
         baseUrl: "js",
         dir: "../../bin",
-        // optimize: "none",
+        optimize: "none",
 
         paths: {
             jQuery: 'libs/jquery/jquery',

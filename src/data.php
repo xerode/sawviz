@@ -4,9 +4,7 @@ include_once 'mysql.php';
 
 //
 
-$film_id = 1;
-
-if( isset( $_GET[ 'film_id' ] ) && is_int( $_GET[ 'film_id' ] ) ) {
+if( isset( $_GET[ 'film_id' ] ) ) { // && is_int( $_GET[ 'film_id' ] )
 	$film_id = $_GET[ 'film_id' ];
 } else {
 	$film_id = 1;
@@ -18,7 +16,7 @@ $people = array();
 
 // $query = mysql_query( "SELECT p.id AS pid, p.name AS pname, r.id AS rid FROM people p, rels_people_films r WHERE r.film_id = $film_id AND p.id = r.person_id ORDER BY pid ASC", $mysql );
 
-$query = mysql_query( "SELECT p.id AS pid, p.name AS pname, COUNT( p.name ) AS numconnections, pr.colour AS colour, pr.id AS rid FROM people p, rels_people_films r, roles pr INNER JOIN rels_people_people rp WHERE r.film_id = $film_id AND p.id = r.person_id AND ( rp.person_a_id = p.id OR rp.person_b_id = p.id ) AND pr.id = p.role_id GROUP BY p.name ORDER BY numconnections DESC", $mysql );
+$query = mysql_query( "SELECT p.id AS pid, p.name AS pname, COUNT( p.name ) AS numconnections, pr.colour AS colour, pr.id AS rid FROM people p, rels_people_films r, roles pr INNER JOIN rels_people_people rp WHERE r.film_id = $film_id AND rp.film_id = r.film_id AND p.id = r.person_id AND ( rp.person_a_id = p.id OR rp.person_b_id = p.id ) AND pr.id = p.role_id GROUP BY p.name ORDER BY numconnections DESC", $mysql );
 
 $id = 0;
 $ids = array();

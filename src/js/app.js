@@ -5,7 +5,7 @@ define(
 	],
 	function( $, d3 ) {
 
-		var initialise = function() {
+		var initialise = function( film_id ) {
 
 			$( document ).ready( function() {
 
@@ -33,7 +33,7 @@ define(
 				    .attr("height", h);
 				    // .attr("class", "graph");
 
-				d3.json("data.php?film_id=1", function(json) {
+				d3.json( "data.php?film_id=" + film_id, function( json ) {
 
 				    var force = self.force = d3.layout.force()
 				        .size([ w, h ] )
@@ -84,7 +84,7 @@ define(
 
 							
 							for( var w in d ) {
-								console.log( "what? " + w + " == " + d[ w ] );
+								console.log( "var " + w + " == " + d[ w ] );
 							}
 							
 
@@ -98,6 +98,7 @@ define(
 						.attr( "x", -4 )
 						.attr( "y", 2 )
 						.attr( "class", "nodetext" )
+						.attr( "dx", "-50px" )
 						.attr( "dy", ".32em" )
 						.style( "fill", "#000000" );
 

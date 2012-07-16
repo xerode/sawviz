@@ -3,6 +3,15 @@
   <head>
       <title>Visualising relationships between characters in the Saw horror film/movie franchise</title>
       <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <script>
+        var urlParams = <?php echo json_encode($_GET, JSON_HEX_TAG);?>;
+
+        var film_id = 1;
+
+        if( urlParams.film_id ) {
+          film_id = urlParams.film_id;
+        }
+      </script>
     </head>
     <body>
       <h1>Vizsaw</h1>
