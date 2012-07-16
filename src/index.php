@@ -15,6 +15,16 @@
     </head>
     <body>
       <h1>Vizsaw</h1>
+      <ol id="filmsList" class="clearfix">
+        <li><a href="?film_id=1">Saw</a></li>
+        <li><a href="?film_id=2">Saw II</a></li>
+        <li><a href="?film_id=3">Saw III</a></li>
+        <li><a href="?film_id=4">Saw IV</a></li>
+        <li><a href="?film_id=5">Saw V</a></li>
+        <li><a href="?film_id=6">Saw VI</a></li>
+        <li><a href="?film_id=7">Saw 3D</a></li>
+        <li><a href="?film_id=0">Show all</a></li>
+      </ol>
       <div id="graph"></div>
       <div id="person">
         <h2 id="name">Name</h2>

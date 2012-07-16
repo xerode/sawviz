@@ -6,6 +6,7 @@
 
 body {
 	margin: 20px;
+	font-size: 63%;
 }
 
 div#graph {
@@ -20,7 +21,7 @@ div#graph {
 
 .nodetext {
 	pointer-events: none;
-	font: 10px sans-serif;
+	font: 1em sans-serif;
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: normal;
@@ -30,4 +31,26 @@ div#graph {
 
 div#person {
 	display: none;
+}
+
+ol#filmsList li {
+	display: inline;
+	float: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 0 1em 0 0;
+	font-size: 1.6em;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+p {
+	font-size: 1em;
+	line-height: 1.5;
 }
