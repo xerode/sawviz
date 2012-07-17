@@ -1,11 +1,11 @@
 <?php
 
-include_once 'mysql.php';
+include_once '../mysql.php';
 
 //
 
-if( isset( $_GET[ 'film_id' ] ) ) { // && is_int( $_GET[ 'film_id' ] )
-	$film_id = $_GET[ 'film_id' ];
+if( isset( $_GET[ 'id' ] ) ) { // && is_int( $_GET[ 'film_id' ] )
+	$film_id = $_GET[ 'id' ];
 } else {
 	$film_id = 0;
 }

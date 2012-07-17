@@ -7,6 +7,16 @@
 body {
 	margin: 20px;
 	font-size: 63%;
+	font-family: Helvetica, Verdana, sans-serif;
+}
+
+header, nav {
+	width: 100%;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
 }
 
 div#graph {
@@ -34,6 +44,7 @@ div#person {
 }
 
 ol#filmsList li {
+	text-align: left;
 	display: inline;
 	float: left;
 	font-weight: bold;

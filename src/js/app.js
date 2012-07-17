@@ -29,18 +29,18 @@ define(
 				var color = d3.scale.category10();
 
 				var vis = d3.select( "div#graph" ).append( "svg:svg" )
-				    .attr("width", w)
-				    .attr("height", h);
+				    .attr( "width", w )
+				    .attr( "height", h );
 				    // .attr("class", "graph");
 
-				d3.json( "data.php?film_id=" + film_id, function( json ) {
+				d3.json( "data/graph.php?id=" + film_id, function( json ) {
 
 				    var force = self.force = d3.layout.force()
-				        .size([ w, h ] )
+				        .size( [ w, h ] )
 				        .nodes( json.nodes )
 				        .links( json.links )
 				        .gravity( 0.5 )
-				        .charge( -5000 );
+				        .charge( -7500 );
 
 				        // 
 
@@ -53,8 +53,8 @@ define(
 
 				        force.start();
 
-				    var link = vis.selectAll("line.link")
-				        .data(json.links);
+				    var link = vis.selectAll( "line.link" )
+				        .data( json.links );
 
 				        link.enter().insert( "svg:line", "g" )
 				        .attr( "class", "link" )
@@ -69,27 +69,28 @@ define(
 
 					gs.append( "svg:circle" )
 						.style( "fill", "#ffffff" )
-						.attr( "r", function( d ) { return d.numconnections * 2 + 10; } )
+						.attr( "r", 16 )
 						.attr( "cx", 0 )
 						.attr( "cy", 0 );
 
+					// r function( d ) { return d.numconnections * 2 + 8; }
+
 					gs.append( "svg:circle" )
 						.style( "fill", function( d ) { return color( d.rid ); } )
-						.attr( "r", function( d ) { return d.numconnections * 2 + 8; } )
+						.attr( "r", 14 )
 						.attr( "cx", 0 )
 						.attr( "cy", 0 )
-						.attr( "did", function( d ) { return d.pid; } )
 						.attr( "class", "personNode" )
 						.on( "click", function( d ) {
-
 							
 							for( var w in d ) {
 								console.log( "var " + w + " == " + d[ w ] );
 							}
-							
 
 							fetchPersonData( d[ 'pid' ], d[ 'name' ] );
 						} );
+
+						// r function( d ) { return d.numconnections * 2 + 6; }
 
 				      // .style("fill", function( d ) { return d.color } )
 
